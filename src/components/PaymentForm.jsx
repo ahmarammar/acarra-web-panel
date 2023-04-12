@@ -89,7 +89,7 @@ const PaymentFormFooter = () => {
   return (
     <footer className='border-t border-gray-200 p-8 flex items-center justify-between'>
       <h4 className='font-semibold text-text-color text-lg'>Previous</h4>
-      <button className='py-5 px-14 rounded-lg text-lg outline-none bg-full-blue text-white disabled:bg-grayish-white disabled:text-white/50'>Next</button>
+      <button className='py-4 px-12 rounded-lg text-lg outline-none bg-full-blue text-white disabled:bg-grayish-white disabled:text-white/50'>Next</button>
     </footer>
   )
 }
