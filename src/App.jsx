@@ -1,10 +1,10 @@
 import React from 'react'
-import Auth from './components/Auth'
+import PaymentForm from './components/PaymentForm'
 
 const App = () => {
   return (
     <>
-      <Auth />
+      <PaymentForm />
     </>
   )
 }
