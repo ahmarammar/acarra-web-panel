@@ -63,13 +63,13 @@ const PaymentProcessing = () => {
         <div className='mt-6'>
           <h2 className='font-bold text-text-color text-[1.75rem]'>Choose a way to pay</h2>
           <div className='flex flex-wrap gap-3 mt-7'>
-            <button className={`${activeButton.cash && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1`} onClick={handleActiveButton} value={"cash"}>Cash</button>
-            <button className={`${activeButton.creditCard && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1`} onClick={handleActiveButton} value={"credit-card"}>Credit Card</button>
-            <button className={`${activeButton.ewallet && "border border-black bg-white"} bg-btn-gray rounded-md font-bold text-text-color w-[48%] px-8 h-[4rem] tablet:w-auto tablet:flex-1`} onClick={handleActiveButton} value={"e-wallet"}>eWallet/
+            <button className={`${activeButton.cash && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1 min-h-[4rem]`} onClick={handleActiveButton} value={"cash"}>Cash</button>
+            <button className={`${activeButton.creditCard && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1 min-h-[4rem]`} onClick={handleActiveButton} value={"credit-card"}>Credit Card</button>
+            <button className={`${activeButton.ewallet && "border border-black bg-white"} bg-btn-gray rounded-md font-bold text-text-color w-[48%] px-8 tablet:w-auto tablet:flex-1 min-h-[4rem]`} onClick={handleActiveButton} value={"e-wallet"}>eWallet/
             Virtual bank</button>
           </div>
-          <div className='flex items-start gap-5 mt-6'>
-            <input type="checkbox" name='agreed' className='mt-1.5' />
+          <div className='flex items-start gap-5 mt-8'>
+            <input type="checkbox" name='agreed' className='h-8 w-8 tablet:h-5 tablet:w-5 tablet:mt-0.5' />
             <label htmlFor="agreed" className='text-grayish-black'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <span className='text-full-blue underline font-semibold'>do eiusmod</span></label>
           </div>
         </div>
