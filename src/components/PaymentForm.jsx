@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import cross from "../assets/images/close.svg"
 import locationIcon from "../assets/images/location.svg"
 import calendarIcon from "../assets/images/calendar.svg"
@@ -6,13 +6,44 @@ import CardImage from "../assets/images/mobile-card-photo.png"
 
 const FormMain = ({children}) => {
   return(
-    <div className='bg-white pt-6 px-6 pb-20'>
+    <div className='bg-white pt-6 px-6 pb-20 tablet:container tablet:mx-auto'>
       {children}
     </div>
   )
 }
 
 const PaymentProcessing = () => {
+
+  const [activeButton, setActiveButton] = useState({
+    cash: true,
+    creditCard: false,
+    ewallet: false
+  });
+
+  const handleActiveButton = (e) => {
+    if(e.target.value === "cash"){
+      setActiveButton({
+        cash: true,
+        creditCard: false,
+        ewallet: false
+      })
+    }
+    if(e.target.value === "credit-card"){
+      setActiveButton({
+        cash: false,
+        creditCard: true,
+        ewallet: false
+      })
+    }
+    if(e.target.value === "e-wallet"){
+      setActiveButton({
+        cash: false,
+        creditCard: false,
+        ewallet: true
+      })
+    }
+  }
+
   return(
     <main>
       <div className='mt-7'>
@@ -32,9 +63,9 @@ const PaymentProcessing = () => {
         <div className='mt-6'>
           <h2 className='font-bold text-text-color text-[1.75rem]'>Choose a way to pay</h2>
           <div className='flex flex-wrap gap-3 mt-7'>
-            <button className='border border-black rounded-md py-4 font-bold text-text-color w-[48%]'>Cash</button>
-            <button className='bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%]'>Credit Card</button>
-            <button className='bg-btn-gray rounded-md py-2 font-bold text-text-color w-[48%] px-8'>eWallet/
+            <button className={`${activeButton.cash && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1`} onClick={handleActiveButton} value={"cash"}>Cash</button>
+            <button className={`${activeButton.creditCard && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1`} onClick={handleActiveButton} value={"credit-card"}>Credit Card</button>
+            <button className={`${activeButton.ewallet && "border border-black bg-white"} bg-btn-gray rounded-md font-bold text-text-color w-[48%] px-8 h-[4rem] tablet:w-auto tablet:flex-1`} onClick={handleActiveButton} value={"e-wallet"}>eWallet/
             Virtual bank</button>
           </div>
           <div className='flex items-start gap-5 mt-6'>
@@ -49,7 +80,7 @@ const PaymentProcessing = () => {
 
 const Card = () => {
   return(
-    <div className='border p-4 rounded-lg flex items-center gap-5 mt-6'>
+    <div className='border p-4 rounded-lg flex items-center gap-5 mt-6 min-h-[10rem] relative'>
       <img src={CardImage} alt="" className='rounded-xl h-[4.5rem]'/>
       <div className='space-y-2'>
         <h3 className='font-bold text-lg text-text-color'>Japanese lessons</h3>
@@ -61,8 +92,9 @@ const Card = () => {
           <img src={locationIcon} alt="" className='h-4'/>
           <span className='text-grayish-black text-xs font-semibold'>Client`s place</span>
         </div>
-        <h3 className='font-bold text-xl text-text-color'>Rp 350.000</h3>
+        <h3 className='font-bold text-xl text-text-color tablet:hidden'>Rp 350.000</h3>
       </div>
+      <h3 className='absolute right-10 top-10 font-bold text-xl text-text-color hidden tablet:inline'>Rp 350.000</h3>
     </div>
   )
 }
@@ -96,8 +128,8 @@ const PaymentFormFooter = () => {
 
 const PaymentFormHeader = () => {
   return (
-    <header className='min-h-[7rem] w-full pt-6 pb-5 pl-8 pr-9 bg-header-bg text-white '>
-      <h2 className='max-w-xs text-2xl font-semibold'>Choose the form of payment</h2>
+    <header className='min-h-[5.5rem] w-full pt-6 pb-5 pl-8 pr-9 bg-header-bg text-white '>
+      <h2 className='max-w-xs tablet:max-w-full text-2xl font-semibold'>Choose the form of payment</h2>
       <button className='absolute right-5 top-[2.1rem]' onClick={() => setShowModal(false)}><img src={cross} alt="" className='h-4' /></button>
     </header>
   )
