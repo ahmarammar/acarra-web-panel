@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Font Family for Noto Sans */
 body{
   font-family: 'Noto Sans', sans-serif;
