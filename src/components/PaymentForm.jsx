@@ -65,7 +65,7 @@ const PaymentProcessing = () => {
           <div className='flex flex-wrap gap-3 mt-7'>
             <button className={`${activeButton.cash && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1 min-h-[4rem]`} onClick={handleActiveButton} value={"cash"}>Cash</button>
             <button className={`${activeButton.creditCard && "border border-black bg-white"} bg-btn-gray rounded-md py-4 font-bold text-text-color w-[48%] tablet:w-auto tablet:flex-1 min-h-[4rem]`} onClick={handleActiveButton} value={"credit-card"}>Credit Card</button>
-            <button className={`${activeButton.ewallet && "border border-black bg-white"} bg-btn-gray rounded-md font-bold text-text-color w-[48%] px-8 tablet:w-auto tablet:flex-1 min-h-[4rem]`} onClick={handleActiveButton} value={"e-wallet"}>eWallet/
+            <button className={`${activeButton.ewallet && "border border-black bg-white"} bg-btn-gray rounded-md font-bold text-text-color w-[48%] px-7 tablet:px-0 tablet:w-auto tablet:flex-1 min-h-[4rem]`} onClick={handleActiveButton} value={"e-wallet"}>eWallet/
             Virtual bank</button>
           </div>
           <div className='flex items-start gap-5 mt-8'>
